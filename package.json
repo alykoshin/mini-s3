@@ -1,6 +1,6 @@
 {
   "name": "mini-s3",
-  "version": "0.2.4",
+  "version": "0.0.0",
   "description": "Set of file system functions to extend fs module",
   "main": "./index.js",
   "engines": {
@@ -15,10 +15,10 @@
     "lint": "eslint -f unix .",
     "inspect": "jsinspect --ignore 'coverage|test'",
     "pretest": "npm run lint && npm run inspect && npm run _npm-audit && npm run _deps-check",
-    "_test": "nyc ./node_modules/mocha/bin/_mocha -- -R spec ./test/**/*",
+    "__test": "nyc ./node_modules/mocha/bin/_mocha -- -R spec ./test/**/*",
     "_test-report": "nyc report --reporter=html && nyc report --reporter=text-lcov > coverage/coverage.lcov",
     "test": "npm run _test && npm run _test-report",
-    "__test": "echo \"Warning: no test specified\" && exit 0",
+    "_test": "echo \"Warning: no test specified\" && exit 0",
     "___test": "echo \"Error: no test specified\" && exit 1",
     "_commit": "git commit -am \"commit by 'npm run commit'\"",
     "_push": "git push --follow-tags",
