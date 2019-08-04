@@ -1,0 +1,73 @@
+{
+  "name": "mini-s3",
+  "version": "0.2.4",
+  "description": "Set of file system functions to extend fs module",
+  "main": "./index.js",
+  "engines": {
+    "node": ">=4.6.2"
+  },
+  "scripts": {
+    "_npm-audit": "npm audit || echo '\n*** Please check warnings above ***\n' && npm audit --production --audit-level high && echo '\n*** npm audit reported no high-level vulnerabilities for production configuration ***\n' ",
+    "_deps-check": "npm-check-updates --error-level 2",
+    "_deps-update": "echo '* Updating packages versions... '; npm-check-updates -u --upgradeAll --error-level 1 && npm install",
+    "_check-changes": "echo '* Checking if git directory is clean... '; bash -c '[[ -z $(git status -uno --porcelain) ]]'",
+    "update-deps": "npm run _check-changes && npm run _deps-update && npm test && git commit -am 'updated deps'",
+    "lint": "eslint -f unix .",
+    "inspect": "jsinspect --ignore 'coverage|test'",
+    "pretest": "npm run lint && npm run inspect && npm run _npm-audit && npm run _deps-check",
+    "_test": "nyc ./node_modules/mocha/bin/_mocha -- -R spec ./test/**/*",
+    "_test-report": "nyc report --reporter=html && nyc report --reporter=text-lcov > coverage/coverage.lcov",
+    "test": "npm run _test && npm run _test-report",
+    "__test": "echo \"Warning: no test specified\" && exit 0",
+    "___test": "echo \"Error: no test specified\" && exit 1",
+    "_commit": "git commit -am \"commit by 'npm run commit'\"",
+    "_push": "git push --follow-tags",
+    "commit-and-push": "npm run _commit && npm test && npm run _push",
+    "_publish": "npm publish --access public",
+    "_patch-release": "npm version patch && git commit -am 'npm version patch' && npm run _publish",
+    "_minor-release": "npm version minor && git commit -am 'npm version minor' && npm run _publish",
+    "_major-release": "npm version major && git commit -am 'npm version major' && npm run _publish",
+    "patch-release": "npm test && npm run _patch-release && npm run _push",
+    "minor-release": "npm test && npm run _minor-release && npm run _push",
+    "__major-release": "npm test && npm run _major-release && npm run _push",
+    "_coveralls": "cat ./coverage/coverage.lcov | ./node_modules/coveralls/bin/coveralls.js",
+    "travis-before-install": "",
+    "travis-before-script": "",
+    "travis-script": "npm run test",
+    "travis-after-script": "npm run _coveralls"
+  },
+  "keywords": [
+    "fs,file,system,dir,directory"
+  ],
+  "author": "Alexander <alykoshin@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alykoshin/mini-s3.git"
+  },
+  "bugs": {
+    "url": "https://github.com/alykoshin/mini-s3"
+  },
+  "homepage": "https://github.com/alykoshin/mini-s3",
+  "dependencies": {
+    "@utilities/array": "0.0.7",
+    "@utilities/async": "0.0.8",
+    "async": "^3.1.0",
+    "aws-sdk": "^2.503.0",
+    "slugify": "^1.3.4"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-arrays": "^2.0.0",
+    "chai-things": "^0.2.0",
+    "coveralls": "^3.0.5",
+    "eslint": "^6.1.0",
+    "jshint": "^2.10.2",
+    "jsinspect": "^0.12.7",
+    "mocha": "^6.2.0",
+    "mocha-lcov-reporter": "^1.3.0",
+    "mockery": "^2.1.0",
+    "nyc": "^14.1.1",
+    "sinon": "^7.4.0"
+  }
+}

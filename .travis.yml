@@ -1,0 +1,13 @@
+language: node_js
+node_js:
+  - "4"
+  - "5"
+  - "6"
+  - "7"
+  - "stable"
+  - "latest"
+before_install:
+script: "npm run-script test-travis"
+# Send coverage data to Coveralls
+before_script:
+after_script: "npm run-script coverall"
