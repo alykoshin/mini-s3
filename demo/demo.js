@@ -11,10 +11,8 @@ const test_me = async () => {
     secretAccessKey: credentials.secretAccessKey,
   });
 
-  const feedDir      = config.output.feedDir;
-  const markerDir    = config.output.markerDir;
-  const fname1       = feedDir + '/out_main_menu.json';
-  const markerFile   = markerDir + '/marker.txt';
+  const dir   = './data';
+  const fname = dir + '/test.txt';
 
   //
 
@@ -31,9 +29,9 @@ const test_me = async () => {
 
   //await s3bucket.file(fname1).upload();
   //await s3bucket.file(markerFile).upload();
-  await s3bucket.directory(feedDir).upload();
+  await s3bucket.directory(dir).upload();
 
-  //await s3bucket.file( markerFile ).upload();
+  await s3bucket.file( fname ).upload();
 
   const finalKeys = await s3bucket.listKeys();
   console.log('finalKeys:', finalKeys);

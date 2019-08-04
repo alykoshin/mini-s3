@@ -7,6 +7,7 @@
     "node": ">=4.6.2"
   },
   "scripts": {
+    "start": "(cd demo && DEBUG=mini-s3 nodemon demo)",
     "_npm-audit": "npm audit || echo '\n*** Please check warnings above ***\n' && npm audit --production --audit-level high && echo '\n*** npm audit reported no high-level vulnerabilities for production configuration ***\n' ",
     "_deps-check": "npm-check-updates --error-level 2",
     "_deps-update": "echo '* Updating packages versions... '; npm-check-updates -u --upgradeAll --error-level 1 && npm install",
