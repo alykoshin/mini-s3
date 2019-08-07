@@ -10,7 +10,7 @@
 
 # mini-s3
 
-Set of file system functions to extend fs module
+Wrapper for Amazon S3 
 
 
 If you have different needs regarding the functionality, please add a [feature request](https://github.com/alykoshin/mini-s3/issues).
@@ -19,7 +19,7 @@ If you have different needs regarding the functionality, please add a [feature r
 ## Installation
 
 ```sh
-npm install --save @utilities/fs
+npm install --save mini-s3
 ```
 
 ## Usage
