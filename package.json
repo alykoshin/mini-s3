@@ -1,6 +1,6 @@
 {
   "name": "mini-s3",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Set of file system functions to extend fs module",
   "main": "./index.js",
   "engines": {
