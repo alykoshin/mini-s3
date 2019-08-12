@@ -31,7 +31,7 @@ const test_me = async () => {
   //await s3bucket.file(markerFile).upload();
   await s3bucket.directory(dir).upload();
 
-  await s3bucket.file( fname ).upload();
+  //await s3bucket.file( fname ).upload();
 
   const finalKeys = await s3bucket.listKeys();
   console.log('finalKeys:', finalKeys);

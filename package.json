@@ -54,9 +54,9 @@
   "dependencies": {
     "@utilities/array": "0.0.7",
     "@utilities/async": "0.0.8",
-    "@utilities/fs": "^0.2.6",
+    "@utilities/fs": "^0.2.7",
     "async": "^3.1.0",
-    "aws-sdk": "^2.504.0",
+    "aws-sdk": "^2.507.0",
     "slugify": "^1.3.4"
   },
   "devDependencies": {
