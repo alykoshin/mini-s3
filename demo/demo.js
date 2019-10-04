@@ -21,6 +21,12 @@ const test_me = async () => {
     .list();
   console.log('buckets:', buckets);
 
+  const startKeys = await miniS3.bucket(bucket).listKeys();
+  console.log('startKeys:',        startKeys);
+  console.log('startKeys.length:', startKeys.length);
+
+  process.exit(0)
+
   // Select bucket by name
 
   const s3bucket = await miniS3
@@ -48,7 +54,8 @@ const test_me = async () => {
   //console.log('filenames:', filenames);
   //await s3bucket.list();
   const finalKeys = await s3bucket.listKeys();
-  console.log('finalKeys:', finalKeys);
+  console.log('finalKeys:',        finalKeys);
+  console.log('finalKeys.length:', finalKeys.length);
 
   console.log('DONE');
 };
