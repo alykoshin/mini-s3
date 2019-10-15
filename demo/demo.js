@@ -16,16 +16,14 @@ const test_me = async () => {
 
   // List buckets
 
-  const buckets = await miniS3
-    .buckets()
-    .list();
-  console.log('buckets:', buckets);
-
-  const startKeys = await miniS3.bucket(bucket).listKeys();
-  console.log('startKeys:',        startKeys);
-  console.log('startKeys.length:', startKeys.length);
-
-  process.exit(0)
+  //const buckets = await miniS3
+  //  .buckets()
+  //  .list();
+  //console.log('buckets:', buckets);
+  //
+  //const startKeys = await miniS3.bucket(bucket).listKeys();
+  //console.log('startKeys:',        startKeys);
+  //console.log('startKeys.length:', startKeys.length);
 
   // Select bucket by name
 
@@ -37,7 +35,8 @@ const test_me = async () => {
 
   // Delete all keys in the bucket (and list keys to verify)
 
-  const deletedKeys = await s3bucket.deleteAll();
+  //const deletedKeys = await s3bucket.deleteAll();
+  const deletedKeys = await s3bucket.deleteFiltered(name => name !== 'marker.txt');
   console.log('deletedKeys:', deletedKeys);
   //await s3bucket.files(filenames).delete();
 
