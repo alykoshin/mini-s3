@@ -50,11 +50,11 @@ const test_me = async () => {
   ////await s3bucket.file(markerFile).upload();
 
   //await s3bucket.directory(localDir).upload();
-  await miniS3._uploadOne({ filename: fname, bucket, remoteDir: remoteDir });
+  //await miniS3._uploadOne({ filename: fname, bucket, remoteDir: remoteDir });
 
   // List keys in the bucket
 
-  //const filenames = await s3bucket.listNames();
+  const filenames = await s3bucket.listNames();
   //console.log('filenames:', filenames);
   //await s3bucket.list();
   //const finalKeys = await s3bucket.listKeys();
